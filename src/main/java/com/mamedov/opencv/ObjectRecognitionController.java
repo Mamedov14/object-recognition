@@ -206,6 +206,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickBlack() {
+        resetColor();
+        black.setStyle("-fx-background-color: black");
         hueStart.setValue(0);
         hueStop.setValue(180);
 
@@ -218,6 +220,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickWhite() {
+        resetColor();
+        white.setStyle("-fx-background-color: white");
         hueStart.setValue(0);
         hueStop.setValue(180);
 
@@ -230,6 +234,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickRed() {
+        resetColor();
+        red.setStyle("-fx-background-color: red");
         hueStart.setValue(0);
         hueStop.setValue(10);
 
@@ -242,6 +248,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickBrown() {
+        resetColor();
+        brown.setStyle("-fx-background-color: brown");
         hueStart.setValue(11);
         hueStop.setValue(25);
 
@@ -254,6 +262,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickYellow() {
+        resetColor();
+        yellow.setStyle("-fx-background-color: yellow");
         hueStart.setValue(26);
         hueStop.setValue(34);
 
@@ -266,6 +276,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickGreen() {
+        resetColor();
+        green.setStyle("-fx-background-color: green");
         hueStart.setValue(35);
         hueStop.setValue(77);
 
@@ -278,6 +290,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickBlue1() {
+        resetColor();
+        blue1.setStyle("-fx-background-color: #00b2ff");
         hueStart.setValue(78);
         hueStop.setValue(99);
 
@@ -290,6 +304,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickBlue2() {
+        resetColor();
+        blue2.setStyle("-fx-background-color: blue");
         hueStart.setValue(100);
         hueStop.setValue(124);
 
@@ -302,6 +318,8 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickViolet() {
+        resetColor();
+        violet.setStyle("-fx-background-color: violet");
         hueStart.setValue(125);
         hueStop.setValue(155);
 
@@ -310,5 +328,18 @@ public class ObjectRecognitionController {
 
         valueStart.setValue(46);
         valueStop.setValue(255);
+    }
+
+    private void resetColor() {
+        black.setStyle("-fx-background-color: white");
+        white.setStyle("-fx-background-color: white");
+        red.setStyle("-fx-background-color: white");
+        brown.setStyle("-fx-background-color: white");
+        yellow.setStyle("-fx-background-color: white");
+        green.setStyle("-fx-background-color: white");
+        blue1.setStyle("-fx-background-color: white");
+        blue2.setStyle("-fx-background-color: white");
+        violet.setStyle("-fx-background-color: white");
+
     }
 }
