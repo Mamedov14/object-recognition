@@ -2,7 +2,6 @@ package com.mamedov.opencv;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -207,6 +206,7 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickBlack() {
+        red.
         hueStart.setValue(0);
         hueStop.setValue(180);
 
