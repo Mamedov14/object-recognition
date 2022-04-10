@@ -27,9 +27,11 @@ public class ObjectRecognitionController {
     // область FXML для отображения маски
     @FXML
     private ImageView maskImage;
+    
     // область FXML для отображения результатов морфологических операций
 //    @FXML
 //    private ImageView morphImage;
+
     // Ползунок FXML для установки диапазонов HSV
     @FXML
     private Slider hueStart;
@@ -84,7 +86,7 @@ public class ObjectRecognitionController {
 //        this.imageViewProperties(this.morphImage, 200);
 
         if (!this.cameraActive) {
-            this.capture.open(0);
+            this.capture.open(1);
 
             if (this.capture.isOpened()) {
                 this.cameraActive = true;

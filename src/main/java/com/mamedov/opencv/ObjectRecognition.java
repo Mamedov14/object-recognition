@@ -3,6 +3,7 @@ package com.mamedov.opencv;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.opencv.core.Core;
@@ -16,6 +17,7 @@ public class ObjectRecognition extends Application {
             root.setStyle("-fx-background-color: #9a9a9a;");
             Scene scene = new Scene(root, 1300, 600);
             stage.setTitle("Object Recognition");
+            stage.getIcons().add(new Image("img/opencv.png"));
             stage.setScene(scene);
             stage.show();
 
