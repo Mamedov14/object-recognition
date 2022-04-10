@@ -206,7 +206,6 @@ public class ObjectRecognitionController {
 
     @FXML
     private void onClickBlack() {
-        red.
         hueStart.setValue(0);
         hueStop.setValue(180);
 
