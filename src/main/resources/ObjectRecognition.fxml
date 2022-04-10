@@ -1,47 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?language javascript?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.mamedov.opencv.ObjectRecognitionController">
+
+<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mamedov.opencv.ObjectRecognitionController">
     <right>
         <VBox alignment="CENTER" spacing="10">
             <padding>
-                <Insets right="10" left="10"/>
+                <Insets left="10" right="10"/>
             </padding>
             <Label text="Hue Start"/>
-            <Slider fx:id="hueStart" max="180" value="0" blockIncrement="1"/>
+            <Slider fx:id="hueStart" blockIncrement="1" max="180" value="0"/>
             <Label text="Hue Stop"/>
-            <Slider fx:id="hueStop" max="180" value="10" blockIncrement="1"/>
+            <Slider fx:id="hueStop" blockIncrement="1" max="180" value="10"/>
             <Label text="Saturation Start"/>
-            <Slider fx:id="saturationStart" max="255" value="43" blockIncrement="1"/>
+            <Slider fx:id="saturationStart" blockIncrement="1" max="255" value="43"/>
             <Label text="Saturation Stop"/>
-            <Slider fx:id="saturationStop" max="255" value="255" blockIncrement="1"/>
+            <Slider fx:id="saturationStop" blockIncrement="1" max="255" value="255"/>
             <Label text="Value Start"/>
-            <Slider fx:id="valueStart" max="255" value="46" blockIncrement="1"/>
+            <Slider fx:id="valueStart" blockIncrement="1" max="255" value="46"/>
             <Label text="Value Stop"/>
-            <Slider fx:id="valueStop" max="255" value="255" blockIncrement="1"/>
+            <Slider fx:id="valueStop" blockIncrement="1" max="255" value="255"/>
+            <HBox>
+                <Button fx:id="black" mnemonicParsing="false" text="Black" BorderPane.alignment="CENTER"
+                        onAction="#onClickBlack"/>
+                <Button fx:id="white" mnemonicParsing="false" text="White" BorderPane.alignment="CENTER"
+                        onAction="#onClickWhite"/>
+                <Button fx:id="red" mnemonicParsing="false" text="Red" BorderPane.alignment="CENTER"
+                        onAction="#onClickRed"/>
+                <Button fx:id="brown" mnemonicParsing="false" text="Brown" BorderPane.alignment="CENTER"
+                        onAction="#onClickBrown"/>
+                <Button fx:id="yellow" mnemonicParsing="false" text="Yellow" BorderPane.alignment="CENTER"
+                        onAction="#onClickYellow"/>
+                <Button fx:id="green" mnemonicParsing="false" text="Green" BorderPane.alignment="CENTER"
+                        onAction="#onClickGreen"/>
+                <Button fx:id="blue1" mnemonicParsing="false" text="Blue1" BorderPane.alignment="CENTER"
+                        onAction="#onClickBlue1"/>
+                <Button fx:id="blue2" mnemonicParsing="false" text="Blue2" BorderPane.alignment="CENTER"
+                        onAction="#onClickBlue2"/>
+                <Button fx:id="violet" mnemonicParsing="false" text="Violet" BorderPane.alignment="CENTER"
+                        onAction="#onClickViolet"/>
+            </HBox>
         </VBox>
+
     </right>
     <center>
         <HBox alignment="CENTER_LEFT" spacing="5">
             <padding>
-                <Insets right="10" left="10"/>
+                <Insets left="10" right="10"/>
             </padding>
             <ImageView fx:id="originalFrame"/>
             <HBox alignment="CENTER_RIGHT" spacing="5">
                 <ImageView fx:id="maskImage"/>
-<!--                <ImageView fx:id="morphImage"/>-->
+                <!--                <ImageView fx:id="morphImage"/>-->
             </HBox>
         </HBox>
     </center>
     <bottom>
         <VBox alignment="CENTER" spacing="15">
             <padding>
-                <Insets top="25" right="25" bottom="25" left="25"/>
+                <Insets bottom="25" left="25" right="25" top="25"/>
             </padding>
-            <Button fx:id="cameraButton" alignment="center" text="Start camera" onAction="#startCamera"/>
+            <Button fx:id="cameraButton" alignment="center" onAction="#startCamera" text="Start camera"/>
             <Separator/>
             <Label fx:id="hsvCurrentValues"/>
         </VBox>

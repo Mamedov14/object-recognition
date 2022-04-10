@@ -14,7 +14,7 @@ public class ObjectRecognition extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ObjectRecognition.fxml"));
             BorderPane root = loader.load();
             root.setStyle("-fx-background-color: #ffffff;");
-            Scene scene = new Scene(root, 1000, 600);
+            Scene scene = new Scene(root, 1300, 600);
             stage.setTitle("Object Recognition");
             stage.setScene(scene);
             stage.show();

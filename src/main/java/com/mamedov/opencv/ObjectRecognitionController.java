@@ -2,6 +2,7 @@ package com.mamedov.opencv;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -46,6 +47,25 @@ public class ObjectRecognitionController {
     // Метка FXML для отображения текущих значений, установленных с помощью ползунков
     @FXML
     private Label hsvCurrentValues;
+
+    @FXML
+    private Button black;
+    @FXML
+    private Button white;
+    @FXML
+    private Button red;
+    @FXML
+    private Button brown;
+    @FXML
+    private Button yellow;
+    @FXML
+    private Button green;
+    @FXML
+    private Button blue1;
+    @FXML
+    private Button blue2;
+    @FXML
+    private Button violet;
 
     // таймер получения видеопотока
     private ScheduledExecutorService timer;
@@ -185,4 +205,95 @@ public class ObjectRecognitionController {
         this.stop();
     }
 
+    public void onClickBlack() {
+        hueStart.setValue(0);
+        hueStop.setValue(180);
+
+        saturationStart.setValue(0);
+        saturationStop.setValue(25);
+
+        valueStart.setValue(0);
+        valueStop.setValue(46);
+    }
+
+    public void onClickWhite() {
+        hueStart.setValue(0);
+        hueStop.setValue(180);
+
+        saturationStart.setValue(0);
+        saturationStop.setValue(43);
+
+        valueStart.setValue(46);
+        valueStop.setValue(220);
+    }
+
+    public void onClickRed() {
+        hueStart.setValue(0);
+        hueStop.setValue(10);
+
+        saturationStart.setValue(43);
+        saturationStop.setValue(255);
+
+        valueStart.setValue(46);
+        valueStop.setValue(255);
+    }
+
+
+    public void onClickBrown() {
+        hueStart.setValue(11);
+        hueStop.setValue(25);
+
+        saturationStart.setValue(43);
+        saturationStop.setValue(255);
+
+        valueStart.setValue(46);
+        valueStop.setValue(255);
+    }
+
+    public void onClickYellow() {
+        hueStart.setValue(26);
+        hueStop.setValue(34);
+
+        saturationStart.setValue(43);
+        saturationStop.setValue(255);
+
+        valueStart.setValue(46);
+        valueStop.setValue(255);
+    }
+
+    public void onClickGreen() {
+        hueStart.setValue(35);
+        hueStop.setValue(77);
+
+        saturationStart.setValue(43);
+        saturationStop.setValue(255);
+
+        valueStart.setValue(46);
+        valueStop.setValue(255);
+    }
+
+    public void onClickBlue1() {
+        hueStart.setValue(78);
+        hueStop.setValue(99);
+
+        saturationStart.setValue(43);
+        saturationStop.setValue(255);
+
+        valueStart.setValue(46);
+        valueStop.setValue(255);
+    }
+
+    public void onClickBlue2() {
+        hueStart.setValue(100);
+        hueStop.setValue(124);
+
+        saturationStart.setValue(43);
+        saturationStop.setValue(255);
+
+        valueStart.setValue(46);
+        valueStop.setValue(255);
+    }
+
+    public void onClickViolet() {
+    }
 }
