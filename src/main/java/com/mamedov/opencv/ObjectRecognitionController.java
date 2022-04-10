@@ -27,7 +27,7 @@ public class ObjectRecognitionController {
     // область FXML для отображения маски
     @FXML
     private ImageView maskImage;
-    
+
     // область FXML для отображения результатов морфологических операций
 //    @FXML
 //    private ImageView morphImage;
