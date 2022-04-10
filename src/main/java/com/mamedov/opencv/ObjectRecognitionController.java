@@ -214,7 +214,7 @@ public class ObjectRecognitionController {
         hueStop.setValue(180);
 
         saturationStart.setValue(0);
-        saturationStop.setValue(25);
+        saturationStop.setValue(255);
 
         valueStart.setValue(0);
         valueStop.setValue(46);
