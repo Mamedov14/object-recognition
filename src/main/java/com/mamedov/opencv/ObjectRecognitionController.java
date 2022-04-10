@@ -205,7 +205,8 @@ public class ObjectRecognitionController {
         this.stop();
     }
 
-    public void onClickBlack() {
+    @FXML
+    private void onClickBlack() {
         hueStart.setValue(0);
         hueStop.setValue(180);
 
@@ -216,7 +217,8 @@ public class ObjectRecognitionController {
         valueStop.setValue(46);
     }
 
-    public void onClickWhite() {
+    @FXML
+    private void onClickWhite() {
         hueStart.setValue(0);
         hueStop.setValue(180);
 
@@ -227,7 +229,8 @@ public class ObjectRecognitionController {
         valueStop.setValue(220);
     }
 
-    public void onClickRed() {
+    @FXML
+    private void onClickRed() {
         hueStart.setValue(0);
         hueStop.setValue(10);
 
@@ -238,8 +241,8 @@ public class ObjectRecognitionController {
         valueStop.setValue(255);
     }
 
-
-    public void onClickBrown() {
+    @FXML
+    private void onClickBrown() {
         hueStart.setValue(11);
         hueStop.setValue(25);
 
@@ -250,7 +253,8 @@ public class ObjectRecognitionController {
         valueStop.setValue(255);
     }
 
-    public void onClickYellow() {
+    @FXML
+    private void onClickYellow() {
         hueStart.setValue(26);
         hueStop.setValue(34);
 
@@ -261,7 +265,8 @@ public class ObjectRecognitionController {
         valueStop.setValue(255);
     }
 
-    public void onClickGreen() {
+    @FXML
+    private void onClickGreen() {
         hueStart.setValue(35);
         hueStop.setValue(77);
 
@@ -272,7 +277,8 @@ public class ObjectRecognitionController {
         valueStop.setValue(255);
     }
 
-    public void onClickBlue1() {
+    @FXML
+    private void onClickBlue1() {
         hueStart.setValue(78);
         hueStop.setValue(99);
 
@@ -283,7 +289,8 @@ public class ObjectRecognitionController {
         valueStop.setValue(255);
     }
 
-    public void onClickBlue2() {
+    @FXML
+    private void onClickBlue2() {
         hueStart.setValue(100);
         hueStop.setValue(124);
 
@@ -294,6 +301,15 @@ public class ObjectRecognitionController {
         valueStop.setValue(255);
     }
 
-    public void onClickViolet() {
+    @FXML
+    private void onClickViolet() {
+        hueStart.setValue(125);
+        hueStop.setValue(155);
+
+        saturationStart.setValue(43);
+        saturationStop.setValue(255);
+
+        valueStart.setValue(46);
+        valueStop.setValue(255);
     }
 }
