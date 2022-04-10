@@ -13,7 +13,7 @@ public class ObjectRecognition extends Application {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ObjectRecognition.fxml"));
             BorderPane root = loader.load();
-            root.setStyle("-fx-background-color: #5e5e5e;");
+            root.setStyle("-fx-background-color: #9a9a9a;");
             Scene scene = new Scene(root, 1300, 600);
             stage.setTitle("Object Recognition");
             stage.setScene(scene);
