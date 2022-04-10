@@ -86,7 +86,7 @@ public class ObjectRecognitionController {
 //        this.imageViewProperties(this.morphImage, 200);
 
         if (!this.cameraActive) {
-            this.capture.open(1);
+            this.capture.open(0);
 
             if (this.capture.isOpened()) {
                 this.cameraActive = true;
@@ -172,7 +172,7 @@ public class ObjectRecognitionController {
 
         if (hierarchy.size().height > 0 && hierarchy.size().width > 0) {
             for (int idx = 0; idx >= 0; idx = (int) hierarchy.get(0, idx)[0]) {
-                Imgproc.drawContours(frame, contours, idx, new Scalar(250, 0, 0));
+                Imgproc.drawContours(frame, contours, idx, new Scalar(0, 0, 255), 2);
             }
         }
 
