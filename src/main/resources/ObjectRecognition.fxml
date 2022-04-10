@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.mamedov.opencv.ObjectRecognitionController">
+    <right>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets right="10" left="10"/>
+            </padding>
+            <Label text="Hue Start"/>
+            <Slider fx:id="hueStart" max="180" value="0" blockIncrement="1"/>
+            <Label text="Hue Stop"/>
+            <Slider fx:id="hueStop" max="180" value="10" blockIncrement="1"/>
+            <Label text="Saturation Start"/>
+            <Slider fx:id="saturationStart" max="255" value="43" blockIncrement="1"/>
+            <Label text="Saturation Stop"/>
+            <Slider fx:id="saturationStop" max="255" value="255" blockIncrement="1"/>
+            <Label text="Value Start"/>
+            <Slider fx:id="valueStart" max="255" value="46" blockIncrement="1"/>
+            <Label text="Value Stop"/>
+            <Slider fx:id="valueStop" max="255" value="255" blockIncrement="1"/>
+        </VBox>
+    </right>
+    <center>
+        <HBox alignment="CENTER_LEFT" spacing="5">
+            <padding>
+                <Insets right="10" left="10"/>
+            </padding>
+            <ImageView fx:id="originalFrame"/>
+            <HBox alignment="CENTER_RIGHT" spacing="5">
+                <ImageView fx:id="maskImage"/>
+<!--                <ImageView fx:id="morphImage"/>-->
+            </HBox>
+        </HBox>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER" spacing="15">
+            <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+            </padding>
+            <Button fx:id="cameraButton" alignment="center" text="Start camera" onAction="#startCamera"/>
+            <Separator/>
+            <Label fx:id="hsvCurrentValues"/>
+        </VBox>
+    </bottom>
+</BorderPane>
