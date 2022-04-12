@@ -152,12 +152,10 @@ public class ObjectRecognitionController {
 //                    this.updateImageView(this.morphImage, Utils.matToImage(morphOutput));
 
                     this.findAndDrawBalls(morphOutput, frame);
-
                 }
-
-            } catch (Exception e) {
+            } catch (Exception exception) {
                 System.err.print("Exception during the image elaboration...");
-                e.printStackTrace();
+                exception.printStackTrace();
             }
         }
 

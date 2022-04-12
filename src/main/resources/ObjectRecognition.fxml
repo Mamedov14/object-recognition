@@ -56,7 +56,7 @@
             <ImageView fx:id="originalFrame"/>
             <HBox alignment="CENTER_RIGHT" spacing="5">
                 <ImageView fx:id="maskImage"/>
-<!--                <ImageView fx:id="morphImage"/>-->
+                <!--                <ImageView fx:id="morphImage"/>-->
             </HBox>
         </HBox>
     </center>
