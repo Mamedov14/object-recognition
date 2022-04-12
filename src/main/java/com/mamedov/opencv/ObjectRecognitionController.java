@@ -29,8 +29,8 @@ public class ObjectRecognitionController {
     private ImageView maskImage;
 
     // область FXML для отображения результатов морфологических операций
-//    @FXML
-//    private ImageView morphImage;
+    //    @FXML
+    //    private ImageView morphImage;
 
     // Ползунок FXML для установки диапазонов HSV
     @FXML
@@ -83,7 +83,7 @@ public class ObjectRecognitionController {
 
         this.imageViewProperties(this.originalFrame, 400);
         this.imageViewProperties(this.maskImage, 400);
-//        this.imageViewProperties(this.morphImage, 200);
+//      this.imageViewProperties(this.morphImage, 200);
 
         if (!this.cameraActive) {
             this.capture.open(0);
@@ -149,7 +149,7 @@ public class ObjectRecognitionController {
                     Imgproc.dilate(morphOutput, morphOutput, dilateElement);
                     Imgproc.dilate(morphOutput, morphOutput, dilateElement);
 
-//                    this.updateImageView(this.morphImage, Utils.matToImage(morphOutput));
+//                  this.updateImageView(this.morphImage, Utils.matToImage(morphOutput));
 
                     this.findAndDrawBalls(morphOutput, frame);
                 }
