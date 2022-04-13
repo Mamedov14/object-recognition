@@ -3,11 +3,16 @@ package com.mamedov.opencv;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
@@ -67,6 +72,9 @@ public class ObjectRecognitionController {
     private Button blue2;
     @FXML
     private Button violet;
+
+    @FXML
+    private Button imageButton;
 
     // таймер получения видеопотока
     private ScheduledExecutorService timer;
@@ -249,7 +257,7 @@ public class ObjectRecognitionController {
     @FXML
     private void onClickBrown() {
         resetColor();
-        brown.setStyle("-fx-background-color: brown");
+        brown.setStyle("-fx-background-color: #980000");
         hueStart.setValue(11);
         hueStop.setValue(25);
 
@@ -331,15 +339,55 @@ public class ObjectRecognitionController {
     }
 
     private void resetColor() {
-        black.setStyle("-fx-background-color: white");
-        white.setStyle("-fx-background-color: white");
-        red.setStyle("-fx-background-color: white");
-        brown.setStyle("-fx-background-color: white");
-        yellow.setStyle("-fx-background-color: white");
-        green.setStyle("-fx-background-color: white");
-        blue1.setStyle("-fx-background-color: white");
-        blue2.setStyle("-fx-background-color: white");
-        violet.setStyle("-fx-background-color: white");
+        black.setStyle("-fx-background-color: gray");
+        white.setStyle("-fx-background-color: gray");
+        red.setStyle("-fx-background-color: gray");
+        brown.setStyle("-fx-background-color: gray");
+        yellow.setStyle("-fx-background-color: gray");
+        green.setStyle("-fx-background-color: gray");
+        blue1.setStyle("-fx-background-color: gray");
+        blue2.setStyle("-fx-background-color: gray");
+        violet.setStyle("-fx-background-color: gray");
 
+    }
+
+    @FXML
+    private void addImage() {
+        ImageChooser chooser = new ImageChooser();
+        chooser.setAvailableFormats("*.png", "*.gif", "*.jpg", "*.jpeg"); // Указываем форматы для FileChooser.
+        Label placeHolder = new Label("Image not selected"); // Если изображение не выбрано, тогда показываем данный компонент.
+        BorderPane root = new BorderPane(); // Корневой контейнер, в него помещаются кнопка для выбора и само изображение.
+        root.setCenter(placeHolder); // Так как изображение не выбрано отображаем текст 'Изображение не выбрано'
+        ImageView imageView = new ImageView(); // Данный компонент показывает выбранное изображение.
+        Button button = new Button("Select image"); // Кнопка для выбора изображения.
+        BorderPane.setAlignment(button, Pos.CENTER); // Выравнивание кнопки по середине.
+        root.setBottom(button); // Добавление кнопки в контейнер.
+        button.setPadding(new Insets(10));
+        button.setStyle("-fx-padding: 10");
+
+        addImageView(chooser, placeHolder, root, imageView, button);
+
+        newStage(root);
+    }
+
+    private void newStage(BorderPane root) {
+        Stage primaryStage = new Stage();
+        Scene scene = new Scene(root, 640.0, 480.0); // Создание сцены.
+        primaryStage.setScene(scene); // Установка сцены.
+        primaryStage.setTitle("Add Image");
+        primaryStage.show(); // Показываем окно
+    }
+
+    private void addImageView(ImageChooser chooser, Label placeHolder, BorderPane root, ImageView imageView, Button button) {
+        button.setOnAction((event) -> { // Обработчик событий для нажатия кнопки.
+            Image image = chooser.openImage(); // Выбираем изображение.
+            if (image != null) {
+                imageView.setImage(image); // Установка изображения.
+                imageView.setFitWidth(500.0); // Установка ширины в 100.0.
+                imageView.setFitHeight(500.0); // Установка высоты в 100.0.
+                root.setCenter(imageView); // Добавление изображения в контейнер.
+            } else
+                root.setCenter(placeHolder); // Если изображение не выбрано, тогда показываем 'Изображение не выбрано'
+        });
     }
 }

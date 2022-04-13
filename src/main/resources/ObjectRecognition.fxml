@@ -65,7 +65,8 @@
             <padding>
                 <Insets bottom="25" left="25" right="25" top="25"/>
             </padding>
-            <Button fx:id="cameraButton" alignment="center" onAction="#startCamera" text="Start camera"/>
+            <Button fx:id="cameraButton" alignment="CENTER" onAction="#startCamera" text="Start camera"/>
+            <Button fx:id="imageButton" alignment="CENTER" onAction="#addImage" text="Add Image"/>
             <Separator/>
             <Label fx:id="hsvCurrentValues"/>
         </VBox>
