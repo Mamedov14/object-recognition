@@ -11,21 +11,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.WritablePixelFormat;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.opencv.core.*;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.io.ByteArrayInputStream;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -376,13 +370,10 @@ public class ObjectRecognitionController {
         root.setBottom(button); // Добавление кнопки в контейнер.
         button.setPadding(new Insets(10));
         button.setStyle("-fx-padding: 10");
+
+
         Image image = chooser.openImage();
-
-
-//        addImageView(chooser, imageNotSelected, root, imageView, button);
-
-        button.setOnAction((event) -> { 
-            // Выбираем изображение.
+        button.setOnAction((event) -> {
             if (image != null) {
                 imageView.setImage(image);
                 imageView.setFitWidth(500.0);
@@ -431,14 +422,7 @@ public class ObjectRecognitionController {
 
 
         root.setRight(box);
-
-        Stage primaryStage = new Stage();
-        Scene scene = new Scene(root, 640.0, 480.0); // Создание сцены.
-        primaryStage.setScene(scene); // Установка сцены.
-        primaryStage.setTitle("Add Image");
-        primaryStage.show(); // Показываем окно
-
-//        newStage(root);
+        newStage(root);
     }
 
     public static void showImage(Mat img, String title) {
@@ -467,18 +451,5 @@ public class ObjectRecognitionController {
         primaryStage.setScene(scene); // Установка сцены.
         primaryStage.setTitle("Add Image");
         primaryStage.show(); // Показываем окно
-    }
-
-    private void addImageView(ImageChooser chooser, Label placeHolder, BorderPane root, ImageView imageView, Button button) {
-        button.setOnAction((event) -> { // Обработчик событий для нажатия кнопки.
-            Image image = chooser.openImage(); // Выбираем изображение.
-            if (image != null) {
-                imageView.setImage(image); // Установка изображения.
-                imageView.setFitWidth(500.0); // Установка ширины в 100.0.
-                imageView.setFitHeight(500.0); // Установка высоты в 100.0.
-                root.setCenter(imageView); // Добавление изображения в контейнер.
-            } else
-                root.setCenter(placeHolder); // Если изображение не выбрано, тогда показываем 'Изображение не выбрано'
-        });
     }
 }
