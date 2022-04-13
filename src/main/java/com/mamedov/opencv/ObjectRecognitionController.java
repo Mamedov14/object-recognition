@@ -355,9 +355,9 @@ public class ObjectRecognitionController {
     private void addImage() {
         ImageChooser chooser = new ImageChooser();
         chooser.setAvailableFormats("*.png", "*.gif", "*.jpg", "*.jpeg"); // Указываем форматы для FileChooser.
-        Label placeHolder = new Label("Image not selected"); // Если изображение не выбрано, тогда показываем данный компонент.
+        Label imageNotSelected = new Label("Image not selected"); // Если изображение не выбрано, тогда показываем данный компонент.
         BorderPane root = new BorderPane(); // Корневой контейнер, в него помещаются кнопка для выбора и само изображение.
-        root.setCenter(placeHolder); // Так как изображение не выбрано отображаем текст 'Изображение не выбрано'
+        root.setCenter(imageNotSelected); // Так как изображение не выбрано отображаем текст 'Изображение не выбрано'
         ImageView imageView = new ImageView(); // Данный компонент показывает выбранное изображение.
         Button button = new Button("Select image"); // Кнопка для выбора изображения.
         BorderPane.setAlignment(button, Pos.CENTER); // Выравнивание кнопки по середине.
@@ -365,8 +365,7 @@ public class ObjectRecognitionController {
         button.setPadding(new Insets(10));
         button.setStyle("-fx-padding: 10");
 
-        addImageView(chooser, placeHolder, root, imageView, button);
-
+        addImageView(chooser, imageNotSelected, root, imageView, button);
         newStage(root);
     }
 
