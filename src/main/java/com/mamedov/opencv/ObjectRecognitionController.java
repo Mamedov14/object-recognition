@@ -360,14 +360,14 @@ public class ObjectRecognitionController {
     @FXML
     private void addImage() {
         ImageChooser chooser = new ImageChooser();
-        chooser.setAvailableFormats("*.png", "*.gif", "*.jpg", "*.jpeg"); // Указываем форматы для FileChooser.
-        Label imageNotSelected = new Label("Image not selected"); // Если изображение не выбрано, тогда показываем данный компонент.
-        BorderPane root = new BorderPane(); // Корневой контейнер, в него помещаются кнопка для выбора и само изображение.
-        root.setCenter(imageNotSelected); // Так как изображение не выбрано отображаем текст 'Изображение не выбрано'
-        ImageView imageView = new ImageView(); // Данный компонент показывает выбранное изображение.
-        Button button = new Button("Set Image"); // Кнопка для выбора изображения.
-        BorderPane.setAlignment(button, Pos.CENTER); // Выравнивание кнопки по середине.
-        root.setBottom(button); // Добавление кнопки в контейнер.
+        chooser.setAvailableFormats("*.png", "*.gif", "*.jpg", "*.jpeg");
+        Label imageNotSelected = new Label("Image not selected");
+        BorderPane root = new BorderPane();
+        root.setCenter(imageNotSelected);
+        ImageView imageView = new ImageView();
+        Button button = new Button("Set Image");
+        BorderPane.setAlignment(button, Pos.CENTER);
+        root.setBottom(button);
         button.setPadding(new Insets(10));
         button.setStyle("-fx-padding: 10");
 
