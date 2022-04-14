@@ -447,9 +447,9 @@ public class ObjectRecognitionController {
 
     private void newStage(BorderPane root) {
         Stage primaryStage = new Stage();
-        Scene scene = new Scene(root, 640.0, 480.0); // Создание сцены.
-        primaryStage.setScene(scene); // Установка сцены.
+        Scene scene = new Scene(root, 640.0, 480.0);
+        primaryStage.setScene(scene);
         primaryStage.setTitle("Add Image");
-        primaryStage.show(); // Показываем окно
+        primaryStage.show();
     }
 }
