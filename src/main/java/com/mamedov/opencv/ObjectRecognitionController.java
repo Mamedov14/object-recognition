@@ -92,8 +92,19 @@ public class ObjectRecognitionController {
 
     @FXML
     private void startCamera() {
+
+        /**
+         * связываем текстовое свойство со строкой,
+         * содержащей текущий диапазон значения HSV для обнаружения объекта
+         */
+
         hsvValuesProperty = new SimpleObjectProperty<>();
         this.hsvCurrentValues.textProperty().bind(hsvValuesProperty);
+
+        /**
+         * устанавливаем фиксированную ширину для всего изображения,
+         *  чтобы показать и сохранить соотношение изображения
+         */
 
         this.imageViewProperties(this.originalFrame, 400);
         this.imageViewProperties(this.maskImage, 400);
@@ -141,14 +152,10 @@ public class ObjectRecognitionController {
 
                     Imgproc.cvtColor(blurredImage, hsvImage, Imgproc.COLOR_BGR2HSV);
 
-                    Scalar minValues = new Scalar(this.hueStart.getValue(), this.saturationStart.getValue(),
-                            this.valueStart.getValue());
-                    Scalar maxValues = new Scalar(this.hueStop.getValue(), this.saturationStop.getValue(),
-                            this.valueStop.getValue());
+                    Scalar minValues = new Scalar(this.hueStart.getValue(), this.saturationStart.getValue(), this.valueStart.getValue());
+                    Scalar maxValues = new Scalar(this.hueStop.getValue(), this.saturationStop.getValue(), this.valueStop.getValue());
 
-                    String valuesToPrint = "Hue range: " + minValues.val[0] + "-" + maxValues.val[0]
-                            + "\tSaturation range: " + minValues.val[1] + "-" + maxValues.val[1] + "\tValue range: "
-                            + minValues.val[2] + "-" + maxValues.val[2];
+                    String valuesToPrint = "Hue range: " + minValues.val[0] + "-" + maxValues.val[0] + "\tSaturation range: " + minValues.val[1] + "-" + maxValues.val[1] + "\tValue range: " + minValues.val[2] + "-" + maxValues.val[2];
                     Utils.onFXThread(this.hsvValuesProperty, valuesToPrint);
 
                     Core.inRange(hsvImage, minValues, maxValues, mask);
@@ -157,8 +164,19 @@ public class ObjectRecognitionController {
                     Mat dilateElement = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(24, 24));
                     Mat erodeElement = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(12, 12));
 
+                    /**
+                     * Размывает изображение, используя определенный структурирующий элемент.
+                     * Функция размывает исходное изображение,
+                     * используя указанный структурирующий элемент,
+                     * определяющий форму окрестности пикселя, по которой берется минимум...
+                     * */
+
                     Imgproc.erode(mask, morphOutput, erodeElement);
                     Imgproc.erode(morphOutput, morphOutput, erodeElement);
+
+                    /**
+                     * Расширяет изображение, используя определенный структурирующий элемент.
+                     * */
 
                     Imgproc.dilate(morphOutput, morphOutput, dilateElement);
                     Imgproc.dilate(morphOutput, morphOutput, dilateElement);
@@ -383,8 +401,7 @@ public class ObjectRecognitionController {
                 imageView.setFitWidth(500.0);
                 imageView.setFitHeight(500.0);
                 root.setCenter(imageView); // Добавление изображения в контейнер.
-            } else
-                root.setCenter(imageNotSelected);
+            } else root.setCenter(imageNotSelected);
         });
 
         Button bgrButton = new Button("BGR Image");
@@ -423,7 +440,6 @@ public class ObjectRecognitionController {
             }
             showImage(bgrImage, "BGR Image");
         });
-
 
         root.setRight(box);
         newStage(root);
