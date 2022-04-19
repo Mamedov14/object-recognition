@@ -168,7 +168,7 @@ public class ObjectRecognitionController {
                     this.findAndDrawBalls(morphOutput, frame);
                 }
             } catch (Exception exception) {
-                System.err.print("Exception during the image elaboration...");
+                System.err.print("Exception while processing image...");
                 exception.printStackTrace();
             }
         }
@@ -194,6 +194,10 @@ public class ObjectRecognitionController {
     private void imageViewProperties(ImageView image, int dimension) {
         image.setFitWidth(dimension);
         image.setPreserveRatio(true);
+        /**
+         * Указывает, сохранить ли формат изображения исходного изображения, масштабируясь,
+         * чтобы соответствовать изображению в пределах подходящего ограничивающего прямоугольника.
+         * */
     }
 
     private void stop() {
