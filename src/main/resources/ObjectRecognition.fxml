@@ -46,8 +46,8 @@
                         onAction="#onClickViolet"/>
             </HBox>
         </VBox>
-
     </right>
+
     <center>
         <HBox alignment="CENTER_LEFT" spacing="5">
             <padding>
@@ -60,6 +60,7 @@
             </HBox>
         </HBox>
     </center>
+
     <bottom>
         <VBox alignment="CENTER" spacing="15">
             <padding>

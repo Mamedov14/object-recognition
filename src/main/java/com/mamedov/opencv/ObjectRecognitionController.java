@@ -1,3 +1,4 @@
+/*
 package com.mamedov.opencv;
 
 import javafx.beans.property.ObjectProperty;
@@ -93,18 +94,22 @@ public class ObjectRecognitionController {
     @FXML
     private void startCamera() {
 
-        /**
+        */
+/**
          * связываем текстовое свойство со строкой,
          * содержащей текущий диапазон значения HSV для обнаружения объекта
-         */
+         *//*
+
 
         hsvValuesProperty = new SimpleObjectProperty<>();
         this.hsvCurrentValues.textProperty().bind(hsvValuesProperty);
 
-        /**
+        */
+/**
          * устанавливаем фиксированную ширину для всего изображения,
          *  чтобы показать и сохранить соотношение изображения
-         */
+         *//*
+
 
         this.imageViewProperties(this.originalFrame, 400);
         this.imageViewProperties(this.maskImage, 400);
@@ -164,19 +169,23 @@ public class ObjectRecognitionController {
                     Mat dilateElement = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(24, 24));
                     Mat erodeElement = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(12, 12));
 
-                    /**
+                    */
+/**
                      * Размывает изображение, используя определенный структурирующий элемент.
                      * Функция размывает исходное изображение,
                      * используя указанный структурирующий элемент,
                      * определяющий форму окрестности пикселя, по которой берется минимум...
-                     * */
+                     * *//*
+
 
                     Imgproc.erode(mask, morphOutput, erodeElement);
                     Imgproc.erode(morphOutput, morphOutput, erodeElement);
 
-                    /**
+                    */
+/**
                      * Расширяет изображение, используя определенный структурирующий элемент.
-                     * */
+                     * *//*
+
 
                     Imgproc.dilate(morphOutput, morphOutput, dilateElement);
                     Imgproc.dilate(morphOutput, morphOutput, dilateElement);
@@ -212,10 +221,12 @@ public class ObjectRecognitionController {
     private void imageViewProperties(ImageView image, int dimension) {
         image.setFitWidth(dimension);
         image.setPreserveRatio(true);
-        /**
+        */
+/**
          * Указывает, сохранить ли формат изображения исходного изображения, масштабируясь,
          * чтобы соответствовать изображению в пределах подходящего ограничивающего прямоугольника.
-         * */
+         * *//*
+
     }
 
     private void stop() {
@@ -458,9 +469,9 @@ public class ObjectRecognitionController {
         JLabel label = new JLabel(imageIcon);
         JScrollPane pane = new JScrollPane(label);
         window.setContentPane(pane);
-        if (image.getWidth() < w && image.getHeight() < h) {
-            window.pack();
-        }
+//        if (image.getWidth() < w && image.getHeight() < h) {
+//            window.pack();
+//        }
         window.setLocationRelativeTo(null);
         window.setVisible(true);
     }
@@ -472,4 +483,4 @@ public class ObjectRecognitionController {
         primaryStage.setTitle("Add Image");
         primaryStage.show();
     }
-}
+}*/

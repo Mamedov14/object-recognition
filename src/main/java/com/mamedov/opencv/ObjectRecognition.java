@@ -1,3 +1,4 @@
+/*
 package com.mamedov.opencv;
 
 import javafx.application.Application;
@@ -32,4 +33,4 @@ public class ObjectRecognition extends Application {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         launch(args);
     }
-}
+}*/
