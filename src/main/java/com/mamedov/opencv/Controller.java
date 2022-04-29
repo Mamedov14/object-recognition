@@ -47,11 +47,11 @@ public class Controller extends Application {
     private boolean cameraActive;
 
     private final Slider idHueStart = new Slider(0, 180, 0);
-    private final Slider idHueStop = new Slider(0, 180, 180);
+    private final Slider idHueStop = new Slider(0, 180, 0);
     private final Slider idSaturationStart = new Slider(0, 255, 0);
-    private final Slider idSaturationStop = new Slider(0, 255, 255);
+    private final Slider idSaturationStop = new Slider(0, 255, 0);
     private final Slider idValueStart = new Slider(0, 255, 0);
-    private final Slider idValueStop = new Slider(0, 255, 46);
+    private final Slider idValueStop = new Slider(0, 255, 0);
 
     private final Button black = new Button("Black");
     private final Button white = new Button("White");
@@ -145,6 +145,7 @@ public class Controller extends Application {
     }
 
     private void buttonColor() {
+
         black.setOnAction(event -> {
             resetColor();
             black.setStyle("-fx-background-color: black");
@@ -432,7 +433,7 @@ public class Controller extends Application {
                     Imgproc.cvtColor(blurredImage, hsvImage, Imgproc.COLOR_BGR2HSV);
 
                     Scalar minValues = new Scalar(this.idHueStart.getValue(), this.idSaturationStart.getValue(), this.idValueStart.getValue());
-                    Scalar maxValues = new Scalar(this.idHueStop.getValue(), this.idSaturationStop.getValue(), this.idSaturationStop.getValue());
+                    Scalar maxValues = new Scalar(this.idHueStop.getValue(), this.idSaturationStop.getValue(), this.idValueStop.getValue());
 
                     String valuesToPrint = "Hue range: " + minValues.val[0] + "-" + maxValues.val[0] + "\tSaturation range: " + minValues.val[1] + "-" + maxValues.val[1] + "\tValue range: " + minValues.val[2] + "-" + maxValues.val[2];
                     Utils.onFXThread(this.hsvValuesProperty, valuesToPrint);
